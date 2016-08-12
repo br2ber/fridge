@@ -43,13 +43,18 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-router.route('/degree/:temperature/:humidity/:stateFridge')
+router.route('/degree')
     .get(function(req, res) {
         var degree = new Degree();
-        degree.temperature = req.params.temperature;
-        degree.humidity = req.params.humidity;
-        degree.stateFridge = req.params.stateFridge;
 
+        degree.temperature = req.param('t');
+        degree.humidity = req.param('h');
+        degree.stateFridge = req.param('s');
+
+        //degree.temperature = req.params.temperature;
+        //degree.humidity = req.params.humidity;
+        //degree.stateFridge = req.params.stateFridge;
+        
         //save the degree and check for errors
         degree.save(function(err) {
             if (err)
