@@ -47,14 +47,14 @@ router.route('/degree')
     .get(function(req, res) {
         var degree = new Degree();
 
-        degree.temperature = req.param('t');
-        degree.humidity = req.param('h');
-        degree.stateFridge = req.param('s');
+        //degree.temperature = req.param('t');
+        //degree.humidity = req.param('h');
+        //degree.stateFridge = req.param('s');
 
-        //degree.temperature = req.params.temperature;
-        //degree.humidity = req.params.humidity;
-        //degree.stateFridge = req.params.stateFridge;
-        
+        degree.temperature = "21";
+        degree.humidity = "60";
+        degree.stateFridge = "1";
+
         //save the degree and check for errors
         degree.save(function(err) {
             if (err)
