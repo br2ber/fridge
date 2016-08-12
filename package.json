@@ -1,0 +1,13 @@
+{
+    "name": "node-api",
+    "main": "server.js",
+      "scripts": {
+	    "start": "node ./bin/www"
+	  },
+    "dependencies": {
+         "express": "~4.2.0",
+	    "body-parser": "~1.0.0",
+	    "mongoose": "~3.8.11"
+    }
+}
+
