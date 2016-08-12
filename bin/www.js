@@ -46,10 +46,25 @@ router.get('/', function(req, res) {
 router.route('/degree')
 
     // create a bear (accessed at POST http://localhost:8080/api/bears)
-    .post(function(req, res) {
-    
+    //.post(function(req, res) {
+    //
+    //    var degree = new Degree();      // create a new instance of the degree model
+    //    degree.name = req.body.name;  // set the degrees name (comes from the request)
+    //
+    //    // save the degree and check for errors
+    //    degree.save(function(err) {
+    //        if (err)
+    //            res.send(err);
+    //
+    //        res.json({ message: 'Bear created!' });
+    //    });
+    //
+    //})
+
+    // get all the bears (accessed at GET http://localhost:8080/api/bears)
+    .get("/:name",function(req, res) {
         var degree = new Degree();      // create a new instance of the degree model
-        degree.name = req.body.name;  // set the degrees name (comes from the request)
+        degree.name = req.params.name;  // set the degrees name (comes from the request)
 
         // save the degree and check for errors
         degree.save(function(err) {
@@ -57,16 +72,6 @@ router.route('/degree')
                 res.send(err);
 
             res.json({ message: 'Bear created!' });
-        });
-        
-    })
-
-    // get all the bears (accessed at GET http://localhost:8080/api/bears)
-    .get(function(req, res) {
-        Degree.find(function(err, degrees) {
-            if (err)
-                res.send(err);
-            res.json(degrees);
         });
     });
 
