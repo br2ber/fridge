@@ -43,11 +43,11 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-router.route('/degree/:name')
+router.route('/degree/:temperature')
     // get all the bears (accessed at GET http://localhost:8080/api/bears)
     .get(function(req, res) {
         var degree = new Degree();      // create a new instance of the degree model
-        degree.name = req.params.name;  // set the degrees name (comes from the request)
+        degree.temperature = req.params.temperature;  // set the degrees name (comes from the request)
 
         //save the degree and check for errors
         degree.save(function(err) {
