@@ -8,7 +8,7 @@ var express    = require('express');        // call express
 var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
-var Degree     = require('../app/models/degree');
+var Fridge     = require('../app/models/fridge');
 // configure app to use bodyParser()
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -43,15 +43,15 @@ router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });   
 });
 
-router.route('/degree/:temperature/:humidity/:stateFridge')
+router.route('/fridge/:temperature/:humidity/:stateFridge')
     .get(function(req, res) {
-        var degree = new Degree();
-        degree.temperature = req.params.temperature;
-        degree.humidity = req.params.humidity;
-        degree.stateFridge = req.params.stateFridge;
+        var fridge = new Fridge();
+        fridge.temperature = req.params.temperature;
+        fridge.humidity = req.params.humidity;
+        fridge.stateFridge = req.params.stateFridge;
 
-        //save the degree and check for errors
-        degree.save(function(err) {
+        //save the fridge and check for errors
+        fridge.save(function(err) {
             if (err)
                 res.send(err);
 
